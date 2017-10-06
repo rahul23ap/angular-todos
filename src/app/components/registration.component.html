@@ -1,0 +1,26 @@
+<h1>{{header_title}}</h1>
+<form #testForm="ngForm" >
+<table>
+	<tr>
+		<td>UserName</td>
+		<td><input type="text"  name="userName" #userNameView="ngModel" [(ngModel)]="userName" minlength="2"  maxlength="10"   required />
+		<span *ngIf="userNameView.errors && (userNameView.dirty || userNameView.touched)">Please enter your user name.</span>
+		</td>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="password" [(ngModel)]="password" minlength="2" maxlength="10" required /></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="Submit" (click)="formSubmit(testForm)" >
+		</td>
+	</tr>		
+</table>
+{{userName}} <br/>
+dirty : {{testForm.dirty}} <br/>
+touched : {{testForm.touched}} <br/>
+untouched : {{testForm.untouched}} <br/>
+valid : {{testForm.valid}} <br/>
+pristine : {{testForm.pristine}} <br/>
+</form>
